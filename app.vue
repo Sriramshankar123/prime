@@ -13,9 +13,8 @@
 
 
       </template>
-      <template #item="{ item, props, hasSubmenu, root }">
-        <a v-ripple class="flex items-center" v-bind="props.action">
-          <span :class="item.icon" />
+      <template #item="{ props}">
+        <a v-ripple v-bind="props.action">
           <img src="./public/files/prokimage.png" alt="">
           <div :class="{ darkTheme: isDarkTheme }">
             <Button @click="toggleDarkMode" outlined class="border-2">
@@ -25,16 +24,6 @@
             </Button>
           </div>
           <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
-
-
-
-
-
-          <span v-if="item.shortcut"
-            class="ml-auto border border-surface-200 dark:border-surface-500 rounded-md bg-surface-100 dark:bg-surface-800 text-xs p-1">{{
-              item.shortcut }}</span>
-          <i v-if="hasSubmenu"
-            :class="['pi pi-angle-down text-primary-500 dark:text-primary-400-500 dark:text-primary-400', { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root }]"></i>
         </a>
       </template>
       <template #end>
@@ -49,29 +38,17 @@
       <template #content>
         <div class="card flex flex-col items-center gap-3">
           <label for="authkey1">Auth Key 1: </label>
-          <InputText id="authkey1" v-model="value1" type="text" size="small" placeholder="Auth Key 1" /><br>
+          <InputText id="authkey1" v-model="value1" type="text" size="small" placeholder="Auth Key 1" />
           <label for="authkey2">Auth Key 2: </label>
-
-          <InputText id="authkey2" v-model="value3" type="text" size="large" placeholder="Auth Key 2" />
+          <InputText id="authkey2" v-model="value3" type="text" size="small" placeholder="Auth Key 2" />
         </div>
         <Button label="Login" />
-
-
-
-
-
       </template>
     </Card>
-
-
-
-
-
   </div>
 </template>
 
 <script setup>
-
 
 
 import SelectButton from 'primevue/selectbutton';
@@ -117,14 +94,18 @@ const toggleDarkMode = () => {
 </script>
 
 <style>
+@import url('~/assets/css/global.css');
+
 body {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
 }
 
+
 .dark-mode body {
   background-color: #091a28;
   color: #ebf4f1;
 }
+
 </style>
 

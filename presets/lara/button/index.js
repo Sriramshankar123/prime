@@ -2,14 +2,15 @@ export default {
     root: ({ props, context, parent }) => ({
         class: [
             'relative',
+            'flex justify-center align-center',
 
             // Alignments
-            'items-center inline-flex text-center align-bottom justify-center',
+            'items-center flex text-center align-bottom justify-center',
 
             // Sizes & Spacing
             'leading-[normal]',
             {
-                'px-4 py-3': props.size === null && props.label !== null,
+                'mx-96 mt-4 px-8 py-3': props.size === null && props.label !== null,
                 'text-sm py-2 px-3': props.size === 'small',
                 'text-xl py-3 px-4': props.size === 'large'
             },

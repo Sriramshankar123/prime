@@ -5,7 +5,8 @@ export default {
 
             // Flexbox
             'flex',
-            'items-center',
+            // 'items-center',
+            'justify-between',
 
             // Spacing
             'p-2',
@@ -14,7 +15,7 @@ export default {
             'rounded-md',
 
             // Color
-            'bg-surface-50 dark:bg-surface-700',
+            /* 'bg-surface-50 dark:bg-surface-700', */
             'border border-surface-200 dark:border-surface-700'
         ]
     },
@@ -52,7 +53,7 @@ export default {
         ]
     }),
     menuitem: {
-        class: 'sm:relative sm:w-auto w-full static'
+        class: 'sm:relative sm:w-auto w-full static flex justify-between'
     },
     content: ({ props, context }) => ({
         class: [
