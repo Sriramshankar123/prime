@@ -1,6 +1,9 @@
 
 export default {
-    ...
+   
+    content: [
+        "presets/**/*.{js,vue,ts}"
+    ],
     theme: {
         extend: {
             colors: {
@@ -30,5 +33,4 @@ export default {
             }
         }
     }
-    ...
 }
