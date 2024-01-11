@@ -4,7 +4,7 @@ export default {
             //Shape
             'rounded-md',
             'shadow-md',
-            'container mx-auto bg-red',
+            'container mx-auto bg-red-600',
 
             //Color
             // 'bg-surface-0 dark:bg-surface-900',
@@ -30,7 +30,7 @@ export default {
         ]
     },
     content: {
-        class: 'py-5 flex flex-col justify-center container mx-auto bg-red' // Vertical padding.
+        class: 'py-5 flex flex-col justify-center container mx-auto' // Vertical padding.
     },
     footer: {
         class: 'pt-5' // Top padding.
