@@ -4,18 +4,19 @@ export default {
             //Shape
             'rounded-md',
             'shadow-md',
-            'container mx-auto bg-red-600',
+            'container my-10 mx-auto px-2 w-96',
 
             //Color
             // 'bg-surface-0 dark:bg-surface-900',
-            'text-surface-700 dark:text-surface-0'
+            'text-surface-700 dark:text-surface-0',
+            'bg-gray-100'
         ]
     },
     body: {
         class: 'p-5 bg-red'
     },
     title: {
-        class: 'text-2xl flex justify-center font-bold mb-2'
+        class: 'text-2xl text-red-400 flex justify-center font-bold  mb-2 bg-gray-300 w-92 h-8 px-32'
     },
     subtitle: {
         class: [

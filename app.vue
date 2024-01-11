@@ -1,43 +1,72 @@
 
 <template>
   <div class="card">
-    <Menubar :model="items">
-      <template #start>
-        <svg></svg>
-        <path
-          d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
-          class="fill-primary-500 dark:fill-primary-400" />
-        <path
-          d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-          class="fill-surface-700 dark:fill-surface-0/80" />
-
-
-      </template>
-      <template #item="{ props}">
-        <a v-ripple v-bind="props.action">
-          <img src="./public/files/prokimage.png" alt="">
-          <div :class="{ darkTheme: isDarkTheme }">
-            <Button @click="toggleDarkMode" outlined class="border-2">
-              <img src="./public/files/dllate.png" width="25" height="25">
-
-
-            </Button>
-          </div>
-          <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
-        </a>
-      </template>
-      <template #end>
-        <div class="flex items-center gap-2">
-
-
+    <header class="bg-sky-950">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between gap-x-2 p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-10 w-auto" src="./public/files/prokimage.png" alt="" />
+          </a>
         </div>
-      </template>
-    </Menubar>
+        <Button @click="toggleDarkMode" outlined class="border-2">
+          <img src="./public/files/nm.png" width="20" height="20">
+
+        </Button>
+        <SelectButton @change="changed" v-model="value" :options="options" aria-labelledby="basic" />
+
+        <div class="flex lg:hidden">
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            @click="mobileMenuOpen = true">
+            <span class="sr-only">Open main menu</span>
+            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a v-for="item in navigation" :key="item.name" :href="item.href"
+            class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+              aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+      <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+        <div class="fixed inset-0 z-10" />
+        <DialogPanel
+          class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div class="flex items-center justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            </a>
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+              <span class="sr-only">Close menu</span>
+              <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a v-for="item in navigation" :key="item.name" :href="item.href"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{
+                    item.name }}</a>
+              </div>
+              <div class="py-6">
+                <a href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
+                  in</a>
+              </div>
+            </div>
+          </div>
+        </DialogPanel>
+      </Dialog>
+    </header>
     <Card class="">
       <template #title> Login </template>
       <template #content>
         <div class="card flex flex-col items-center gap-3">
-          <label for="authkey1">Auth Key 1: </label>
+          <label class="ak" for="authkey1">Auth Key 1: </label>
           <InputText id="authkey1" v-model="value1" type="text" size="small" placeholder="Auth Key 1" />
           <label for="authkey2">Auth Key 2: </label>
           <InputText id="authkey2" v-model="value3" type="text" size="small" placeholder="Auth Key 2" />
@@ -45,6 +74,9 @@
         <Button label="Login" />
       </template>
     </Card>
+    <footer class="mt-96 text-xs mx-8">
+      <p>© 2024 Spirogyra Software Private Limited.Inc. All rights reserved.</p>
+    </footer>
   </div>
 </template>
 
@@ -91,6 +123,17 @@ const toggleDarkMode = () => {
 
   colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
+
+import { usePrimeVue } from 'primevue/config';
+
+const changed=()=>{
+const PrimeVue = usePrimeVue();
+
+PrimeVue.changeTheme('md-dark-blue', 'md-light-blue', 'theme-link', () => {});
+}
+
+
+
 </script>
 
 <style>
@@ -107,5 +150,16 @@ body {
   color: #ebf4f1;
 }
 
+label {
+  color: #000;
+  margin-right: 180px;
+ 
+  
+
+}
 </style>
+
+
+<link id="theme-link" rel="stylesheet" href="/themes/lara-light-green/theme.css">
+
 

@@ -10,12 +10,12 @@ export default {
             // Sizes & Spacing
             'leading-[normal]',
             {
-                'mx-96 mt-4 px-8 py-3': props.size === null && props.label !== null,
+                ' mt-6 mx-28 px-4 py-1 w-24 justify-center': props.size === null && props.label !== null,
                 'text-sm py-2 px-3': props.size === 'small',
                 'text-xl py-3 px-4': props.size === 'large'
             },
             {
-                'w-12 p-0 py-3': props.label == null
+                'w-12 p-0 py-3 px-1': props.label == null
             },
 
             // Shapes

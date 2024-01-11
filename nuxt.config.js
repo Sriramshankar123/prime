@@ -1,7 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import path from "path";
+const baseUrl="localhost:3001";
 export default defineNuxtConfig({
+
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss',"nuxt-primevue", "@nuxtjs/color-mode"],
   primevue: {
@@ -43,4 +45,18 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  
+
+  app: {
+    head: {
+        link: [
+            {
+                id: 'theme-link',
+                rel: 'stylesheet',
+                href: baseUrl + 'themes/lara-dark-blue/theme.css',
+            }
+        ]
+    }
+}
 });
