@@ -13,7 +13,7 @@
           <img src="./public/files/nm.png" width="20" height="20">
 
         </Button>
-        <select v-model="language" id="location" name="location" class="mt-2 pr-1 mr-1 block p-10 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        <select v-model="language" id="location" name="location" class="mt-2 pr-1 mr-0 block  rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
       <option   v-for="item in locales" :key="item" :value="item.code">
             {{ item.name }}</option>
       
