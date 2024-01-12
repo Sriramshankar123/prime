@@ -5,7 +5,7 @@ const baseUrl="localhost:3001";
 export default defineNuxtConfig({
 
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss',"nuxt-primevue", "@nuxtjs/color-mode"],
+  modules: ['@nuxtjs/tailwindcss',"nuxt-primevue", "@nuxtjs/color-mode","@nuxtjs/i18n"],
   primevue: {
     unstyled: true,
     importPT: { from: path.resolve(__dirname, "./presets/lara/") }, //import and apply preset
@@ -58,5 +58,32 @@ export default defineNuxtConfig({
             }
         ]
     }
-}
+},
+
+
+  i18n: {
+    
+    lazy: true,
+    langDir: "locales",
+    strategy: "prefix_and_default",
+    locales: [
+      {
+        code: "en-US",
+        iso: "en-US",
+        name: "Eng",
+        file: "en-US.json",
+      },
+      
+      {
+        code: "in-HI",
+        iso: "in-HI",
+        name: "हिन्दी",
+        file: "in-HI.json",
+      },
+    ],
+    defaultLocale:"en-US",
+   
+    
+  },
+
 });

@@ -9,11 +9,16 @@
             <img class="h-10 w-auto" src="./public/files/prokimage.png" alt="" />
           </a>
         </div>
-        <Button @click="toggleDarkMode" outlined class="border-2">
+        <Button @click="toggleDarkMode" outlined class="border-2 ml-32 py-1">
           <img src="./public/files/nm.png" width="20" height="20">
 
         </Button>
-        <SelectButton @change="changed" v-model="value" :options="options" aria-labelledby="basic" />
+        <select v-model="language" id="location" name="location" class="mt-2 pr-1 mr-1 block p-10 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+      <option   v-for="item in locales" :key="item" :value="item.code">
+            {{ item.name }}</option>
+      
+      </select>
+        
 
         <div class="flex lg:hidden">
           <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -27,7 +32,7 @@
             class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log i <span
               aria-hidden="true">&rarr;</span></a>
         </div>
       </nav>
@@ -40,10 +45,7 @@
               <span class="sr-only">Your Company</span>
               <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
             </a>
-            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
-              <span class="sr-only">Close menu</span>
-              <XMarkIcon class="h-6 w-6" aria-hidden="true" />
-            </button>
+            
           </div>
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
@@ -53,9 +55,6 @@
                     item.name }}</a>
               </div>
               <div class="py-6">
-                <a href="#"
-                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log
-                  in</a>
               </div>
             </div>
           </div>
@@ -63,19 +62,19 @@
       </Dialog>
     </header>
     <Card class="">
-      <template #title> Login </template>
+      <template #title> {{$t("card_heading")}} </template>
       <template #content>
         <div class="card flex flex-col items-center gap-3">
-          <label class="ak" for="authkey1">Auth Key 1: </label>
-          <InputText id="authkey1" v-model="value1" type="text" size="small" placeholder="Auth Key 1" />
-          <label for="authkey2">Auth Key 2: </label>
-          <InputText id="authkey2" v-model="value3" type="text" size="small" placeholder="Auth Key 2" />
+          <label class="ak" for="authkey1">{{$t("auth_key_1")}} </label>
+          <InputText id="authkey1" v-model="value1" type="text" size="small" :placeholder="$t('auth_key_1')" />
+          <label for="authkey2">{{$t("auth_key_2")}}</label>
+          <InputText id="authkey2" v-model="value3" type="text" size="small" :placeholder="$t('auth_key_2')"/>
         </div>
-        <Button label="Login" />
+        <Button :label="$t('login_button')" />
       </template>
     </Card>
     <footer class="mt-96 text-xs mx-8">
-      <p>© 2024 Spirogyra Software Private Limited.Inc. All rights reserved.</p>
+      <p>{{ $t("footer") }}</p>
     </footer>
   </div>
 </template>
@@ -132,6 +131,15 @@ const PrimeVue = usePrimeVue();
 PrimeVue.changeTheme('md-dark-blue', 'md-light-blue', 'theme-link', () => {});
 }
 
+const { locales, locale, setLocale } = useI18n();
+
+const language = computed({
+    get: () => locale.value,
+    set: (value) => {
+        setLocale(value);
+    }
+})
+
 
 
 </script>
@@ -160,6 +168,8 @@ label {
 </style>
 
 
-<link id="theme-link" rel="stylesheet" href="/themes/lara-light-green/theme.css">
+<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">
+
+
 
 
