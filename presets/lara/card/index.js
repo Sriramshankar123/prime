@@ -31,7 +31,7 @@ export default {
         ]
     },
     content: {
-        class: 'py-5 flex flex-col justify-center container mx-auto' // Vertical padding.
+        class: 'py-5 flex flex-col justify-center container mx-auto ' // Vertical padding.
     },
     footer: {
         class: 'pt-5' // Top padding.

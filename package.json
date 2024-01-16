@@ -18,6 +18,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.17",
+    "@heroicons/vue": "^2.1.1",
     "@nuxtjs/tailwindcss": "^6.10.4",
     "primevue": "^3.46.0"
   }
