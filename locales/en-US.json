@@ -5,5 +5,7 @@
     "placeholder_2":"Auth Key 2:",
     "auth_key_2":"Auth Key 2",
     "login_button":"Login",
-    "footer":"© 2024 Spirogyra Software Private Limited.Inc. All rights reserved."
+    "footer":"© 2024 Spirogyra Software Private Limited.Inc. All rights reserved.",
+    "card_heading_2":"ScanQR",
+    "card_heading_3":"Message"
 }
