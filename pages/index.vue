@@ -4,16 +4,7 @@
         <img class="h-10 w-auto" src="./public/files/prokimage.png" alt="" />
 
 
-        <Button @click="toggleDarkMode" outlined class="border-2 ml-32 py-1">
-            <img src="/files/nm.png" width="20" height="20">
-
-        </Button>
-        <select v-model="language" id="location" name="location"
-            class="mt-2 pr-1 mr-0 block p-10 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <option v-for="item in locales" :key="item" :value="item.code">
-                {{ item.name }}</option>
-
-        </select>
+        
 
 
         <div class="flex lg:hidden">
@@ -43,7 +34,7 @@
                     </a>
 
                 </div>
-                
+
             </DialogPanel>
         </Dialog>
 

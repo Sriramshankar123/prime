@@ -122,6 +122,17 @@
           <span class="sr-only">Open sidebar</span>
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
         </button>
+        <img class="h-10 w-auto" src="/files/prokimage.png" alt="" />
+        <Button @click="toggleDarkMode" outlined class="border-2 ml-24 py-2 px-auto">
+            <img src="/files/nm.png" width="32"  height="20">
+
+        </Button>
+        <select v-model="language" id="location" name="location"
+            class="mt-2 pr-1 mr-0 block p-10 rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <option v-for="item in locales" :key="item" :value="item.code">
+                {{ item.name }}</option>
+
+        </select>
 
         <!-- Separator -->
         <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
@@ -165,6 +176,14 @@
 </template>
   
 <script setup>
+const colorMode = useColorMode()
+console.log(colorMode.preference)
+const toggleDarkMode = () => {
+
+    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+}
+
+
 import {
     Dialog,
     DialogPanel,
@@ -205,8 +224,38 @@ const userNavigation = [
 ]
 
 const sidebarOpen = ref(false)
+const { locales, locale, setLocale } = useI18n();
+
+const language = computed({
+    get: () => locale.value,
+    set: (value) => {
+        setLocale(value);
+    }
+})
+
 
 
 </script>
   
-<style></style>
+<style>
+@import url('~/assets/css/global.css');
+
+body {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+.dark-mode body {
+    background-color: #091a28;
+    color: #ebf4f1;
+}
+
+label {
+    color: #000;
+    margin-right: 180px;
+
+
+
+}
+</style>
