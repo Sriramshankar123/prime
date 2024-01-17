@@ -1,7 +1,7 @@
 
 <template>
   <div>
-  <NuxtLayout >
+  <NuxtLayout>
      <NuxtPage></NuxtPage> 
  </NuxtLayout>
 </div>
@@ -27,7 +27,6 @@ import InputText from 'primevue/inputtext';
 const value1 = ref(null);
 const value2 = ref(null);
 const value3 = ref(null);
-const isDarkMode = ref();
 
 
 import { ref } from "vue";
