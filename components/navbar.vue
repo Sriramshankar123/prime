@@ -118,8 +118,8 @@
 
         <Button @click='toggleDarkMode' outlined class="border-2 ml-24 py px-3"
           :class="{ 'dark-mode': colorMode.preference === 'dark' }"> 
-          <img src=".public/files/dllate.png" alt="">
-          
+          <!-- <img src=".public/files/dllate.png" alt=""> -->
+          theme
         </Button>
 
         <select v-model="language" id="location" name="location"
@@ -182,9 +182,7 @@ import { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/co
 const colorMode = useColorMode();
 
 const toggleDarkMode = () => {
-  const isDarkMode = colorMode.preference === 'dark';
-  document.body.classList.toggle('dark-mode', isDarkMode);
-  colorMode.preference = isDarkMode ? 'light' : 'dark';
+  $nuxt.$emit("changeTheme");
 };
 
 

@@ -9,13 +9,15 @@
 </template>
 
 <script setup>
-
+import { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 
 import SelectButton from 'primevue/selectbutton';
 const value = ref('Off');
 const options = ref(['Lara', 'Wind']);
 
 
+
+const colorMode = useColorMode();
 
 
 
@@ -25,8 +27,22 @@ import InputText from 'primevue/inputtext';
 const value1 = ref(null);
 const value2 = ref(null);
 const value3 = ref(null);
+const isDarkMode = ref();
+
 
 import { ref } from "vue";
+
+onMounted(() => {
+  const nuxtApp = useNuxtApp()
+  window.$nuxt = nuxtApp
+
+  $nuxt.$listen('changeTheme', () => {
+    console.log('changeTheme listener', )
+    const isDarkMode = colorMode.preference === 'dark';
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    colorMode.preference = isDarkMode ? 'light' : 'dark';
+  })
+})
 
 const items = ref([
 
@@ -42,15 +58,6 @@ const items = ref([
 
 
 ])
-
-
-
-const colorMode = useColorMode()
-console.log(colorMode.preference)
-const toggleDarkMode = () => {
-
-  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
-}
 
 import { usePrimeVue } from 'primevue/config';
 
@@ -76,7 +83,6 @@ const nav = () => {
 }
 
 
-
 </script>
 
 <style>
@@ -88,7 +94,7 @@ body {
 }
 
 
-.dark-mode body {
+.dark-mode {
   background-color: #091a28;
   color: #ebf4f1;
 }
@@ -101,9 +107,6 @@ label {
 
 }
 </style>
-
-
-<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">
 
 
 
