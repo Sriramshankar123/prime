@@ -43,8 +43,8 @@ export default {
 
             // Primary Button
             {
-                'text-white dark:text-surface-900': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
-                'bg-primary-500 dark:bg-primary-400': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
+                'text-white dark:text-color-secondary': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
+                'bg-primary-500 dark:bg-color-secondary': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain,
                 'border border-primary-500 dark:border-primary-400': !props.link && props.severity === null && !props.text && !props.outlined && !props.plain
             },
             // Primary Text Button

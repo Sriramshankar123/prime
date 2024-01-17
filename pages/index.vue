@@ -91,12 +91,12 @@ const items = ref([
 
 
 
-const colorMode = useColorMode()
-console.log(colorMode.preference)
-const toggleDarkMode = () => {
+// const colorMode = useColorMode()
+// console.log(colorMode.preference)
+// const toggleDarkMode = () => {
 
-    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
-}
+//     colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+// }
 
 import { usePrimeVue } from 'primevue/config';
 
@@ -134,21 +134,21 @@ const nav = () => {
 @import url('~/assets/css/global.css');
 
 body {
-    background-color: #fff;
-    color: rgba(0, 0, 0, 0.8);
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 
 .dark-mode body {
-    background-color: #091a28;
-    color: #ebf4f1;
+  background-color: #091a28;
+  color: #ebf4f1;
 }
 
 label {
-    color: #000;
-    margin-right: 180px;
-
-
+  color: #000;
+  margin-right: 180px;
+ 
+  
 
 }
 </style>

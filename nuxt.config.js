@@ -3,6 +3,9 @@
 import path from "path";
 const baseUrl = "localhost:3001";
 export default defineNuxtConfig({
+  css: [
+    '~/assets/css/global.css',
+  ],
   /*  googleFonts: {
     subsets: 'latin',
     display: 'swap',

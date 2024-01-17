@@ -8,8 +8,8 @@ export default {
 
             //Color
             // 'bg-surface-0 dark:bg-surface-900',
-            'text-surface-700 dark:text-surface-0',
-            'bg-gray-100'
+            'text-surface-700 dark:bg-sky-950',
+            'bg-sky-950'
         ]
     },
     body: {
