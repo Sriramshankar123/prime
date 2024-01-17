@@ -2,7 +2,7 @@
     <div class="card">
 
         <img class="h-10 w-auto" src="./public/files/prokimage.png" alt="" />
-
+        
 
         
 
@@ -91,12 +91,12 @@ const items = ref([
 
 
 
-// const colorMode = useColorMode()
-// console.log(colorMode.preference)
-// const toggleDarkMode = () => {
+const colorMode = useColorMode()
+console.log(colorMode.preference)
+const toggleDarkMode = () => {
 
-//     colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
-// }
+    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+}
 
 import { usePrimeVue } from 'primevue/config';
 
